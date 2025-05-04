@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>License Age Checker</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f2f5;
+      text-align: center;
+      padding: 60px 20px;
+    }
+    h1 {
+      color: #2c3e50;
+    }
+    input, button {
+      padding: 10px;
+      font-size: 16px;
+      margin: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+    button {
+      background-color: #007bff;
+      color: white;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    #result {
+      margin-top: 20px;
+      font-weight: bold;
+      font-size: 20px;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🚗 License Age Checker</h1>
+  <p>Enter your age to check if you're eligible for a driver's license</p>
+
+  <input type="number" id="age" placeholder="Enter your age" min="0">
+  <button onclick="checkAge()">Check</button>
+
+  <div id="result"></div>
+
+  <script>
+    function checkAge() {
+      const age = parseInt(document.getElementById("age").value);
+      const result = document.getElementById("result");
+
+      if (isNaN(age)) {
+        result.textContent = "❗ Please enter a valid number.";
+        result.style.color = "red";
+      } else if (age >= 18) {
+        result.textContent = "✅ You are eligible for a driver's license!";
+        result.style.color = "green";
+      } else {
+        result.textContent = "⛔ You are not eligible. Wait until you're 18.";
+        result.style.color = "orange";
+      }
+    }
+  </script>
+
+</body>
+</html>
